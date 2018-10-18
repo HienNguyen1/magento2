@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<referenceBlock name="footer_links" remove="true" />
+    <referenceContainer name="footer-container">
+    	<container name="middle_footer_container" htmlTag="div" htmlClass="container" before="-">
+        <container name="middle_footer_row" htmlTag="div" htmlClass="row" before="-">
+            <container name="footer_block_1" htmlTag="div" htmlClass="col-md-2 col-sm-6 col-xs-12" >
+                <block class="Magento\Cms\Block\Block" name="block_menu">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">block_menu</argument>
+                    </arguments>
+                </block>
+            </container>
+            <container name="footer_block_2" htmlTag="div" htmlClass="col-md-2 col-sm-6 col-xs-12" >
+                <block class="Magento\Cms\Block\Block" name="block_shopping_info">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">block_shopping_info</argument>
+                    </arguments>
+                </block>
+            </container>
+            <container name="footer_block_3" htmlTag="div" htmlClass="col-md-2 col-sm-6 col-xs-12" >
+                <block class="Magento\Cms\Block\Block" name="block_links">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">block_links</argument>
+                    </arguments>
+                </block>
+            </container>
+            <container name="footer_block_4" htmlTag="div" htmlClass="col-md-2 col-sm-6 col-xs-12" >
+                <block class="Magento\Cms\Block\Block" name="block_policies">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">block_policies</argument>
+                    </arguments>
+                </block>
+            </container>
+            <container name="footer_block_5" htmlTag="div" htmlClass="col-md-4 col-sm-12 col-xs-12" >
+                <block class="Magento\Cms\Block\Block" name="block_newsletter">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">block_newsletter</argument>
+                    </arguments>
+                </block>
+            </container>
+        	</container>
+    	 </container>
+    </referenceContainer>
+
+
+    <!-- header --> 
+    <move element="header" destination="header.panel" before="-"/>  
+    <referenceContainer name="header.panel">
+    	<block class="Magento\Cms\Block\Block" name="country_currency" after="-">
+            <arguments>
+                <argument name="block_id" xsi:type="string">country_currency</argument>
+            </arguments>
+        </block>
+    </referenceContainer>
+    <referenceBlock name="advanced-search-link" remove="true"/>
+    <referenceBlock name="register-link" remove="true"/>
+    <move element="form.subscribe" destination="footer_block_5" after="block_newsletter"/> 
+</page>

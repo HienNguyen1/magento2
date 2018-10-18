@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<referenceBlock name="product.info.stock.sku" remove="true"/>
+	 <move element="product.price.final" destination="product.info.options.wrapper.bottom" before="product.info.addtocart.additional" /> 
+   <move element="product.info.addto" destination="product.info.options.wrapper.bottom" after="-"/>
+	<move element="page.main.title" destination="product.info.main" before="-"/>
+    <move element="product.info.review" destination="product.info.main" before="product.info.price"/>
+
+
+    <referenceBlock name="related.product.addto">
+          <block class="Magento\Catalog\Block\Product\View"
+                 name="preview" as="preview" before="compare"
+                 template="Magento_Catalog::product/list/addto/preview.phtml"/>
+      </referenceBlock>
+    <move element="product.info.overview" destination="product.info.main" before="product.info"/>
+    <referenceContainer name="product.info.main">
+          <block class="Magento\Cms\Block\Block" name="contact_discount">
+            <arguments>
+              <argument name="block_id" xsi:type="string">contact_discount</argument>
+            </arguments>
+          </block>
+        </referenceContainer>
+    <referenceBlock name="product.info.details">
+          <block class="Magento\Catalog\Block\Product\View" name="producttags.tab" as="producttags" template="product/view/product_tags.phtml" group="detailed_info" >
+             <arguments>
+                <argument translate="true" name="title" xsi:type="string">Product Tags</argument>
+             </arguments>
+          </block>
+          <block class="Magento\Catalog\Block\Product\View" name="customattribute.tab" as="customattribute" template="product/view/custom_attribute.phtml" group="detailed_info" >
+             <arguments>
+                <argument translate="true" name="title" xsi:type="string">Custom Attribute</argument>
+             </arguments>
+          </block>
+           <block class="Magento\Catalog\Block\Product\View" name="customstatic.tab" as="customstatic" template="product/view/custom_static.phtml" group="detailed_info" >
+             <arguments>
+                <argument translate="true" name="title" xsi:type="string">Custom Static</argument>
+             </arguments>
+          </block>
+           <referenceBlock name="product.info.description">
+                    <arguments>
+                        <argument name="title" translate="true" xsi:type="string">Description</argument>
+                    </arguments>
+           </referenceBlock>
+           <referenceBlock name="product.attributes">
+                    <arguments>
+                        <argument translate="true" name="title" xsi:type="string">Product Tags</argument>
+                    </arguments>
+            </referenceBlock>
+    </referenceBlock>
+       <!--  <referenceBlock name="product.info.options.swatches" remove="true"/> -->
+        <referenceBlock name="product.info.mailto" remove="true"/>
+
+         <referenceContainer name="content"> 
+          <container name="footer_product_block" htmlTag="div" htmlClass="product_bottom_container" after="-">
+            <container name="footer_pr_block_1" htmlTag="div" htmlClass="our_brand" after="-">
+              <block class="Magento\Cms\Block\Block" name="our_brand">
+                <arguments>
+                  <argument name="block_id" xsi:type="string">our_brand</argument>
+                </arguments>
+              </block>
+            </container>
+            <container name="footer_pr_block_2" htmlTag="div" htmlClass="recent_post" after="-">
+              <block class="Magento\Cms\Block\Block" name="recent_post">
+                <arguments>
+                  <argument name="block_id" xsi:type="string">recent_post</argument>
+                </arguments>
+              </block>
+            </container>
+            <container name="footer_pr_block_4" htmlTag="div" htmlClass="testimonial" after="-">
+              <block class="Magento\Cms\Block\Block" name="testimonial">
+                <arguments>
+                  <argument name="block_id" xsi:type="string">testimonial</argument>
+                </arguments>
+              </block>
+            </container>
+          </container>
+         </referenceContainer>
+         <move element="catalog.product.related" destination="content" before="footer_product_block"/> 
+         
+        
+</page>
