@@ -11,8 +11,6 @@
         <css src="Magento_Theme::css/font-awesome.css"/>
         <css src="css/owl.carousel.css" media="screen"/>
 		<css src="css/owl.theme.default.css" media="screen"/>
-		<css src="Magento_Catalog::css/style.css"/>
-		 
-		
+		<css src="css/style.css"/>
     </head>
 </page>
